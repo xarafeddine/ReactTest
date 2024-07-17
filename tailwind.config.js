@@ -4,7 +4,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        customGray: "#C4C4C4",
+        grayBg: "#F8F8F8",
+        grayBgLight: "#F2F2F2",
+        grayIcon: "#C4C4C4",
+        grayIconLight: "#DCDCDC",
+        grayBorder: "#D8D8D8",
+        grayFont: "#626262",
+        grayFontLight: "#909090",
       },
     },
   },
