@@ -14,7 +14,7 @@ const MainLayout = ({ children }: { children: ReactElement }) => {
       </div>
       <div
         className="flex flex-col"
-        style={{ width: isSidebarOpen ? "84%" : "94%" }}
+        style={{ width: isSidebarOpen ? "calc(84%" : "94%" }}
       >
         <Header isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
         {children}

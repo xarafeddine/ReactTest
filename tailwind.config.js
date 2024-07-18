@@ -11,6 +11,7 @@ export default {
         grayBorder: "#D8D8D8",
         grayFont: "#626262",
         grayFontLight: "#909090",
+        blueLight: "#42A4DF",
       },
     },
   },
