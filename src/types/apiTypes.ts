@@ -5,20 +5,26 @@ export type ViolationsTableData = {
     avatar: string;
     companyImg: string;
   };
-  violations: {
-    protective_gloves: number;
-    safety_glasses: number;
-    ear_protection: number;
-    mask_protection: number;
-    knee_pads: number;
-    safety_shoes: number;
-    coverall: number;
-    hi_vis_jacket: number;
-    safety_harness: number;
-    face_shield: number;
-    hard_hat: number;
-    welding_helmet: number;
-  };
+  violations: Record<string, number>;
+  // {
+  //   protective_gloves: number;
+  //   safety_glasses: number;
+  //   ear_protection: number;
+  //   mask_protection: number;
+  //   knee_pads: number;
+  //   safety_shoes: number;
+  //   coverall: number;
+  //   hi_vis_jacket: number;
+  //   safety_harness: number;
+  //   face_shield: number;
+  //   hard_hat: number;
+  //   welding_helmet: number;
+  // };
+};
+
+export type ViolationsTableColumn = {
+  name: string;
+  image: string;
 };
 
 export type Violation = {

@@ -7,6 +7,7 @@ import searchIcon from "@/assets/icons/searchIcon.svg";
 import DateRangeInput from "@/components/ui/DateRangeInput";
 
 export default function Violations() {
+  const [search, setSearch] = useState("");
   const [tableData, setTableData] = useState<ViolationsTableData[] | null>(
     null
   );
@@ -15,6 +16,9 @@ export default function Violations() {
     getViolationsTableData().then((data) => setTableData(data));
   }, []);
 
+  const filtredTableData =
+    tableData?.filter((row) => row.worker.fullName.includes(search)) || [];
+
   return (
     <div className="bg-grayBgLight p-6 space-y-4 w-full h-full">
       <div className="flex flex-row justify-between items-center">
@@ -22,11 +26,12 @@ export default function Violations() {
         <div className="flex flex-row items-center gap-3">
           <Input
             placeholder="Search workers ..."
-            w={"130px"}
+            w={"250px"}
             leftSection={<img src={searchIcon} />}
             size="sm"
             radius={"sm"}
-            // w='300px'
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
           />
           <DateRangeInput />
           <Select
@@ -35,11 +40,12 @@ export default function Violations() {
             defaultValue={"contractor1"}
             size="sm"
             radius={"sm"}
+            classNames={{ input: "w-36" }}
           />
         </div>
       </div>
       {tableData ? (
-        <ViolationsTable tableData={tableData} />
+        <ViolationsTable tableData={filtredTableData} />
       ) : (
         <div className="flex justify-center items-center">NO DATA TO SHOW</div>
       )}
