@@ -1,7 +1,7 @@
 import { getViolationsTableData } from "@/api/getViolations";
 import ViolationsTable from "@/components/violations/ViolationsTable";
 import { ViolationsTableData } from "@/types/apiTypes";
-import { Input, Select } from "@mantine/core";
+import { Input } from "@mantine/core";
 import { useState, useEffect } from "react";
 import searchIcon from "@/assets/icons/searchIcon.svg";
 import DateRangeInput from "@/components/ui/DateRangeInput";
@@ -34,14 +34,22 @@ export default function Violations() {
             onChange={(e) => setSearch(e.target.value)}
           />
           <DateRangeInput />
-          <Select
+          {/* <Select
             placeholder="All contractors"
             data={["contractor1", "contractor2"]}
             defaultValue={"contractor1"}
             size="sm"
             radius={"sm"}
             classNames={{ input: "w-36" }}
-          />
+          /> */}
+          <select
+            className="p-2 bg-white border border-grayBorder text-sm rounded-md w-40 gap-3"
+            defaultValue={"contractor 1"}
+          >
+            <option value="contractor1">contractor 1</option>
+            <option value="contractor2">contractor 2</option>
+            <option value="contractor3">contractor 3</option>
+          </select>
         </div>
       </div>
       {tableData ? (

@@ -74,7 +74,7 @@ export default function DateRangeInput() {
             <h1 className="text-grayFont text-lg">Date range</h1>
 
             <select
-              className="p-2 bg-white border border-grayBorder rounded-sm w-32 gap-3"
+              className="p-2 bg-white border border-grayBorder text-sm rounded-sm w-32 gap-3"
               defaultValue={"custom"}
               value={option}
               onChange={handleSelectionChange}
