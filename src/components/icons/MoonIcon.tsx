@@ -1,6 +1,7 @@
 export default function MoonIcon() {
   return (
     <svg
+      className="cursor-pointer"
       width="14"
       height="16"
       viewBox="0 0 14 16"

@@ -13,7 +13,7 @@ export default function Header({
   isSidebarOpen: boolean;
 }) {
   return (
-    <div className="flex flex-row items-center justify-between p-5">
+    <div className="flex flex-row items-center justify-between p-4">
       <div className="flex flex-row items-center gap-4">
         {!isSidebarOpen && (
           <img

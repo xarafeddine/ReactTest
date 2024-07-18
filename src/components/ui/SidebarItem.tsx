@@ -17,7 +17,7 @@ export default function SidebarItem({
     <Link to={item.path} className="w-full px-2">
       {isSidebarOpen ? (
         <div
-          className={`flex flex-row items-center p-3 gap-x-2 ${
+          className={`flex flex-row items-center p-3 gap-x-1 ${
             isActive && "bg-blueLight rounded-md"
           }`}
           w-full
@@ -26,7 +26,6 @@ export default function SidebarItem({
             className="pb-1 w-5 h-5"
             color={isActive ? "#FFFFFF" : undefined}
           />
-          {/* <img className="pb-1 w-5" src={item.icon} alt={item.icon} /> */}
           <div className={`${isActive ? "text-white" : "text-grayFont"}`}>
             {item.title}
           </div>

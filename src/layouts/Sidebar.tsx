@@ -6,22 +6,28 @@ import { MENU } from "@/types/constants";
 import SidebarItem from "@/components/ui/SidebarItem";
 
 export default function Sidebar({
+  isDesktop,
   isSidebarOpen,
   toggleSidebar,
 }: {
+  isDesktop: boolean;
   toggleSidebar: () => void;
   isSidebarOpen: boolean;
 }) {
   const logo = isSidebarOpen ? ppeFullLogo : ppeLogo;
   return (
-    <div className="flex shrink-0 flex-col h-screen border gap-y-5 border-grayBorder py-5">
+    <div
+      className={`flex shrink-0 flex-col h-screen gap-y-5 py-5 ${
+        isDesktop ? "border border-grayBorder" : ""
+      }`}
+    >
       <div className="flex flex-row justify-around gap-x-3 items-center px-5">
         <img
-          style={{ width: isSidebarOpen ? "" : "5rem" }}
+          style={{ width: isSidebarOpen ? "" : "5rem", minWidth: "2rem" }}
           src={logo}
           alt="ppe logo"
         />
-        {isSidebarOpen && (
+        {isDesktop && isSidebarOpen && (
           <img
             className="cursor-pointer"
             onClick={toggleSidebar}
@@ -34,7 +40,7 @@ export default function Sidebar({
       {MENU.map((group) => (
         <div
           key={group.title}
-          className={`flex flex-col font-medium ${
+          className={`flex flex-col text-sm font-medium ${
             isSidebarOpen ? "items-start px-4" : "items-center"
           }`}
         >

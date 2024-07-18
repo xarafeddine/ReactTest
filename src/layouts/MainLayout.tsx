@@ -1,20 +1,48 @@
-import { ReactElement, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
+import { useDisclosure, useViewportSize } from "@mantine/hooks";
+import { Drawer } from "@mantine/core";
+import { isDesktop, isMobile } from "@/utils";
 
 const MainLayout = ({ children }: { children: ReactElement }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   function toggleSidebar() {
-    setIsSidebarOpen((prev) => !prev);
+    open();
+    isDesktop(width) && setIsSidebarOpen((prev) => !prev);
   }
+
+  const [opened, { open, close }] = useDisclosure(false);
+
+  const { width } = useViewportSize();
+
+  useEffect(() => {
+    if (!isDesktop(width)) {
+      setIsSidebarOpen(false);
+    }
+  }, [width]);
+
   return (
     <div className="flex flex-row">
-      <div style={{ width: isSidebarOpen ? "16%" : "6%" }}>
-        <Sidebar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      </div>
+      {!isDesktop(width) && (
+        <Drawer size={300} opened={opened} onClose={close}>
+          <Sidebar isDesktop={isDesktop(width)} isSidebarOpen={true} toggleSidebar={toggleSidebar} />
+        </Drawer>
+      )}
+      {!isMobile(width) && (
+        <div style={{ width: isSidebarOpen ? "16%" : "6%" }}>
+          <Sidebar
+            isDesktop={isDesktop(width)}
+            isSidebarOpen={isSidebarOpen}
+            toggleSidebar={toggleSidebar}
+          />
+        </div>
+      )}
       <div
         className="flex flex-col"
-        style={{ width: isSidebarOpen ? "calc(84%" : "94%" }}
+        style={{
+          width: isMobile(width) ? "100%" : isSidebarOpen ? "84%" : "94%",
+        }}
       >
         <Header isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
         {children}

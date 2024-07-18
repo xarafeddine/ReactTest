@@ -1,6 +1,7 @@
 export default function BellIcon() {
   return (
     <svg
+      className="cursor-pointer"
       width="15"
       height="20"
       viewBox="0 0 15 20"
