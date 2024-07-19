@@ -65,6 +65,7 @@ export default function DateRangeInput({
             radius={"sm"}
             w="200px"
             value={dateStr}
+            readOnly
           />
         </Popover.Target>
         <Popover.Dropdown>

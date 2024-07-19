@@ -28,6 +28,7 @@ export default function LanguagesDropdown() {
       <Popover.Dropdown p={3} className="rounded-sm">
         {Object.entries(languages).map(([key, value]) => (
           <div
+            key={key}
             className="flex flex-row items-center gap-3 hover:bg-grayBgLight bg-white p-3 cursor-pointer"
             onClick={() => setSelectedLanguage(key)}
           >

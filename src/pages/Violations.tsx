@@ -50,6 +50,7 @@ export default function Violations() {
           <div className="bg-grayBgLight px-4 py-1">SITES</div>
           {sites.map((item, idx) => (
             <span
+              key={idx}
               className={`cursor-pointer w-16 text-center py-1 hover:bg-blue-50 ${
                 idx === site ? "text-blueLight" : ""
               }`}

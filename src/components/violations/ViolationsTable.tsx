@@ -17,7 +17,7 @@ export default function ViolationsTable({
       accu[curr] = row.violations[curr];
       return accu;
     }, {} as Record<string, number>);
-    return { worker: row.worker, violations };
+    return { ...row, violations };
   });
   return (
     <div className="overflow-x-auto w-full">
