@@ -17,8 +17,8 @@ export default function Sidebar({
   const logo = isSidebarOpen ? ppeFullLogo : ppeLogo;
   return (
     <div
-      className={`flex shrink-0 flex-col h-full gap-y-5 py-5 ${
-        isDesktop ? "border border-grayBorder" : ""
+      className={`flex shrink-0 flex-col h-full gap-y-5 ${
+        isDesktop ? "border border-grayBorder py-5" : "p-0"
       }`}
     >
       <div className="flex flex-row justify-around gap-x-3 items-center px-5">

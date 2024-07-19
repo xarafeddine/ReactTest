@@ -6,6 +6,8 @@ import { useState, useEffect } from "react";
 import searchIcon from "@/assets/icons/searchIcon.svg";
 import DateRangeInput from "@/components/ui/DateRangeInput";
 import { isDateBetween } from "@/utils";
+import MaxViewIcon from "@/components/icons/MaxViewIcon";
+import SitesControler from "@/components/ui/SitesControler";
 
 export default function Violations() {
   const [search, setSearch] = useState("");
@@ -13,7 +15,6 @@ export default function Violations() {
     null
   );
   const [isLoading, setIsLoading] = useState(false);
-  const sites = ["All", "Site 1", "Site 2", "Site 3", "Site 4"];
   const [site, setSite] = useState(0);
   const [selctedContractor, setSelectedContractor] =
     useState("All Contractors");
@@ -45,26 +46,11 @@ export default function Violations() {
 
   return (
     <div className="flex flex-col">
-      <div className="border border-grayBorder text-[13px]">
-        <div className="flex flex-row text-grayFontLight">
-          <div className="bg-grayBgLight px-4 py-1">SITES</div>
-          {sites.map((item, idx) => (
-            <span
-              key={idx}
-              className={`cursor-pointer w-16 text-center py-1 hover:bg-blue-50 ${
-                idx === site ? "text-blueLight" : ""
-              }`}
-              onClick={() => setSite(idx)}
-            >
-              {item}
-            </span>
-          ))}
-        </div>
-      </div>
+      <SitesControler site={site} setSite={setSite} />
       <div className="bg-grayBgLight p-5 space-y-4 w-full h-full">
         <div className="flex flex-row justify-between items-center">
           <h1>P.P.E Violations Table</h1>
-          <div className="flex flex-row items-center gap-3">
+          <div className="flex flex-col items-end md:flex-row md:items-center gap-2">
             <Input
               placeholder="Search workers ..."
               w={"250px"}
@@ -75,15 +61,19 @@ export default function Violations() {
               onChange={(e) => setSearch(e.target.value)}
             />
             <DateRangeInput applyDateRange={setDateRange} />
-            <select
-              className="p-2 bg-white border border-grayBorder text-sm rounded-md w-40 gap-3"
-              value={selctedContractor}
-              onChange={(e) => setSelectedContractor(e.target.value)}
-            >
-              <option>All Contractors</option>
-              <option>Manager</option>
-              <option>Employee</option>
-            </select>
+            <div className="flex flex-row items-center gap-2">
+              <select
+                className="p-2 bg-white border border-grayBorder text-sm rounded-md w-40 gap-3"
+                value={selctedContractor}
+                onChange={(e) => setSelectedContractor(e.target.value)}
+              >
+                <option>All Contractors</option>
+                <option>Manager</option>
+                <option>Employee</option>
+              </select>
+
+              <MaxViewIcon />
+            </div>
           </div>
         </div>
         {isLoading ? (

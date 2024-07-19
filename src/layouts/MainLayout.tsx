@@ -25,8 +25,12 @@ const MainLayout = ({ children }: { children: ReactElement }) => {
   return (
     <div className="flex flex-row">
       {!isDesktop(width) && (
-        <Drawer size={300} opened={opened} onClose={close}>
-          <Sidebar isDesktop={isDesktop(width)} isSidebarOpen={true} toggleSidebar={toggleSidebar} />
+        <Drawer size={270} opened={opened} onClose={close}>
+          <Sidebar
+            isDesktop={isDesktop(width)}
+            isSidebarOpen={true}
+            toggleSidebar={toggleSidebar}
+          />
         </Drawer>
       )}
       {!isMobile(width) && (

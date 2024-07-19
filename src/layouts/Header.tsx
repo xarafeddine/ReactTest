@@ -27,9 +27,11 @@ export default function Header({
       </div>
 
       <div className="flex flex-row items-center gap-6">
-        <TextScalingIcon className="cursor-pointer w-8 h-8" />
-        <MoonIcon className="cursor-pointer w-5 h-5" />
-        <BellIcon className="cursor-pointer w-5 h-5" />
+        <div className="flex flex-col gap-y-1 sm:flex-row items-center gap-x-5">
+          <TextScalingIcon className="cursor-pointer w-8 h-8" />
+          <MoonIcon className="my-[3px] cursor-pointer w-5 h-5" />
+          <BellIcon className="my-[3px] cursor-pointer w-5 h-5" />
+        </div>
         <LanguagesDropdown />
         <ProfileDropdown />
       </div>

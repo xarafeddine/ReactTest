@@ -22,10 +22,16 @@ export default function ViolationsTable({
   return (
     <div className="overflow-x-auto w-full">
       <div className="overflow-y-auto h-[28rem] w-full">
-        <table className="min-w-full bg-white border-collapse border rounded-md border-grayBorder">
-          <ViolationsTableHeader columns={columns} setColumns={setColumns} />
-          <ViolationsTableBody data={bodyData} />
-        </table>
+        {bodyData.length === 0 ? (
+          <div className="flex justify-center items-center h-96 border border-grayBgLight">
+            No Data To Show
+          </div>
+        ) : (
+          <table className="min-w-full bg-white border-collapse border rounded-md border-grayBorder">
+            <ViolationsTableHeader columns={columns} setColumns={setColumns} />
+            <ViolationsTableBody data={bodyData} />
+          </table>
+        )}
       </div>
     </div>
   );
