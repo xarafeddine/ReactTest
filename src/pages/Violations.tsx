@@ -47,7 +47,7 @@ export default function Violations() {
   return (
     <div className="flex flex-col h-full">
       <SitesControler site={site} setSite={setSite} />
-      <div className="bg-grayBgLight p-5 space-y-4 w-full h-full">
+      <div className="p-5 space-y-4 w-full h-full">
         <div className="flex flex-row justify-between items-center">
           <h1>P.P.E Violations Table</h1>
           <div className="flex flex-col items-end md:flex-row md:items-center gap-2">

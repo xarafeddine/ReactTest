@@ -21,7 +21,7 @@ export default function Sidebar({
         width: isSidebarOpen ? "15rem" : "5rem",
         // transition: "width 0.5s",
       }}
-      className={`flex shrink-0 flex-col h-full gap-y-5 ${
+      className={`bg-white flex shrink-0 flex-col h-full gap-y-5 ${
         !isInDrawer ? "border border-grayBorder py-5 fixed top-0" : ""
       }`}
     >

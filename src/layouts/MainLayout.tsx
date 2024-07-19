@@ -23,7 +23,7 @@ const MainLayout = ({ children }: { children: ReactElement }) => {
   }, [width]);
 
   return (
-    <div className="flex flex-row min-h-screen">
+    <div className="bg-grayBgLight flex flex-row min-h-screen">
       {!isDesktop(width) && (
         <Drawer size={270} opened={opened} onClose={close}>
           <Sidebar
@@ -41,7 +41,7 @@ const MainLayout = ({ children }: { children: ReactElement }) => {
           />
       )}
       <div
-        className="flex flex-col h-screen w-full"
+        className="flex flex-col h-full w-full"
         style={{
           paddingLeft: isMobile(width)
             ? "0px"

@@ -13,7 +13,7 @@ export default function Header({
   isSidebarOpen: boolean;
 }) {
   return (
-    <div className="flex flex-row items-center justify-between py-3 px-5">
+    <div className="bg-white flex flex-row items-center justify-between py-3 px-5 sticky top-0 border-b">
       <div className="flex flex-row items-center gap-4">
         {!isSidebarOpen && (
           <img

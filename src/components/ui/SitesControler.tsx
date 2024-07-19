@@ -8,7 +8,7 @@ export default function SitesControler({
   setSite: (site: number) => void;
 }) {
   return (
-    <div className="border border-grayBorder text-[13px]">
+    <div className="bg-white border border-t-0 border-grayBorder text-[13px]">
       <div className="flex flex-row text-grayFontLight">
         <div className="bg-grayBgLight px-4 py-1">SITES</div>
         {sites.map((item, idx) => (

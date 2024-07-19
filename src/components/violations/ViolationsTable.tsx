@@ -21,7 +21,7 @@ export default function ViolationsTable({
   });
   return (
     <div className="overflow-x-auto w-full">
-      <div className="overflow-y-auto max-h-[70vh] w-full">
+      {/* <div className="overflow-y-auto max-h-[70vh] w-full"> */}
         {bodyData.length === 0 ? (
           <div className="flex justify-center items-center h-96 border border-grayBgLight">
             No Data To Show
@@ -32,7 +32,7 @@ export default function ViolationsTable({
             <ViolationsTableBody data={bodyData} />
           </table>
         )}
-      </div>
+      {/* </div> */}
     </div>
   );
 }
