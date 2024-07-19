@@ -17,8 +17,12 @@ export default function Sidebar({
   const logo = isSidebarOpen ? ppeFullLogo : ppeLogo;
   return (
     <div
+      style={{
+        width: isSidebarOpen ? "15rem" : "5rem",
+        // transition: "width 0.5s",
+      }}
       className={`flex shrink-0 flex-col h-full gap-y-5 ${
-        !isInDrawer ? "border border-grayBorder py-5" : ""
+        !isInDrawer ? "border border-grayBorder py-5 fixed top-0" : ""
       }`}
     >
       <div className="flex flex-row justify-around gap-x-3 items-center px-1 overflow-auto">

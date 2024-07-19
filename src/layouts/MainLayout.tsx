@@ -23,7 +23,7 @@ const MainLayout = ({ children }: { children: ReactElement }) => {
   }, [width]);
 
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row min-h-screen">
       {!isDesktop(width) && (
         <Drawer size={270} opened={opened} onClose={close}>
           <Sidebar
@@ -34,22 +34,20 @@ const MainLayout = ({ children }: { children: ReactElement }) => {
         </Drawer>
       )}
       {!isMobile(width) && (
-        <div
-          style={{
-            width: isSidebarOpen ? "17%" : "5%",
-            transition: "width 0.5s",
-          }}
-        >
+        
           <Sidebar
             isSidebarOpen={isSidebarOpen}
             toggleSidebar={toggleSidebar}
           />
-        </div>
       )}
       <div
-        className="flex flex-col"
+        className="flex flex-col h-screen w-full"
         style={{
-          width: isMobile(width) ? "100%" : isSidebarOpen ? "83%" : "95%",
+          paddingLeft: isMobile(width)
+            ? "0px"
+            : isSidebarOpen
+            ? "15rem"
+            : "5rem",
         }}
       >
         <Header isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />

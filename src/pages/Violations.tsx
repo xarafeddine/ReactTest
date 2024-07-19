@@ -45,7 +45,7 @@ export default function Violations() {
     }) || [];
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col h-full">
       <SitesControler site={site} setSite={setSite} />
       <div className="bg-grayBgLight p-5 space-y-4 w-full h-full">
         <div className="flex flex-row justify-between items-center">
