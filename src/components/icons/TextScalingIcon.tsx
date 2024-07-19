@@ -1,7 +1,7 @@
-export default function TextScalingIcon() {
+export default function TextScalingIcon({ className }: { className?: string }) {
   return (
     <svg
-      className="cursor-pointer"
+      className={className}
       width="21"
       height="30"
       viewBox="0 0 21 30"

@@ -12,3 +12,15 @@ export function isTablet(currentWidth: number) {
 export function isDesktop(currentWidth: number) {
   return currentWidth > desktopWidth;
 }
+
+export const isDateBetween = (
+  dateStr: string,
+  startDate: Date | null,
+  endDate: Date | null
+): boolean => {
+  const date = new Date(dateStr);
+  if (!startDate || !endDate) return true;
+  if (isNaN(date.getTime())) return true;
+
+  return date >= startDate && date <= endDate;
+};

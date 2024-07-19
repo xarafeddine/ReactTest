@@ -2,7 +2,15 @@ import { Button, Input, Popover } from "@mantine/core";
 import { DatePicker } from "@mantine/dates";
 import { useState } from "react";
 
-export default function DateRangeInput() {
+export default function DateRangeInput({
+  // dateRange,
+  applyDateRange,
+}: {
+  // dateRange: [Date | null, Date | null];
+  applyDateRange: React.Dispatch<
+    React.SetStateAction<[Date | null, Date | null]>
+  >;
+}) {
   const [option, setOption] = useState("custom");
   const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([
     null,
@@ -19,6 +27,7 @@ export default function DateRangeInput() {
             date2?.toLocaleDateString() || ""
           }`;
     setDateStr(dateString);
+    applyDateRange(dateRange);
   }
 
   const handleSelectionChange = (
@@ -60,17 +69,6 @@ export default function DateRangeInput() {
         </Popover.Target>
         <Popover.Dropdown>
           <div className="flex flex-col gap-y-4 p-3">
-            {/* <Select
-              label="Date range"
-              placeholder="Pick value"
-              data={["Custom", "Past week", "Past month", "Past year"]}
-              defaultValue={"Custom"}
-              w={"130px"}
-              classNames={{ label: "text-grayFont text-lg" }}
-              value={option}
-              onChange={(opt) => opt && setOption(opt)}
-            /> */}
-
             <h1 className="text-grayFont text-lg">Date range</h1>
 
             <select

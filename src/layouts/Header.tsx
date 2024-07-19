@@ -13,23 +13,23 @@ export default function Header({
   isSidebarOpen: boolean;
 }) {
   return (
-    <div className="flex flex-row items-center justify-between p-4">
+    <div className="flex flex-row items-center justify-between py-3 px-5">
       <div className="flex flex-row items-center gap-4">
         {!isSidebarOpen && (
           <img
-            className="cursor-pointer"
+            className="cursor-pointer pb-1"
             onClick={toggleSidebar}
             src={burgerIcon}
             alt="burger icon"
           />
         )}
-        <h1 className="test-xl">Overview</h1>
+        <h1 className="test-width={'5rem'}xl">Overview</h1>
       </div>
 
       <div className="flex flex-row items-center gap-6">
-        <TextScalingIcon />
-        <MoonIcon />
-        <BellIcon />
+        <TextScalingIcon className="cursor-pointer w-8 h-8" />
+        <MoonIcon className="cursor-pointer w-5 h-5" />
+        <BellIcon className="cursor-pointer w-5 h-5" />
         <LanguagesDropdown />
         <ProfileDropdown />
       </div>

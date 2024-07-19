@@ -30,7 +30,7 @@ const MainLayout = ({ children }: { children: ReactElement }) => {
         </Drawer>
       )}
       {!isMobile(width) && (
-        <div style={{ width: isSidebarOpen ? "16%" : "6%" }}>
+        <div style={{ width: isSidebarOpen ? "17%" : "5%" }}>
           <Sidebar
             isDesktop={isDesktop(width)}
             isSidebarOpen={isSidebarOpen}
@@ -41,7 +41,7 @@ const MainLayout = ({ children }: { children: ReactElement }) => {
       <div
         className="flex flex-col"
         style={{
-          width: isMobile(width) ? "100%" : isSidebarOpen ? "84%" : "94%",
+          width: isMobile(width) ? "100%" : isSidebarOpen ? "83%" : "95%",
         }}
       >
         <Header isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />

@@ -6,6 +6,8 @@ export type ViolationsTableData = {
     companyImg: string;
   };
   violations: Record<string, number>;
+  site: number;
+  date: string;
   // {
   //   protective_gloves: number;
   //   safety_glasses: number;

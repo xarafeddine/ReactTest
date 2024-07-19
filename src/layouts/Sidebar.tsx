@@ -17,13 +17,16 @@ export default function Sidebar({
   const logo = isSidebarOpen ? ppeFullLogo : ppeLogo;
   return (
     <div
-      className={`flex shrink-0 flex-col h-screen gap-y-5 py-5 ${
+      className={`flex shrink-0 flex-col h-full gap-y-5 py-5 ${
         isDesktop ? "border border-grayBorder" : ""
       }`}
     >
       <div className="flex flex-row justify-around gap-x-3 items-center px-5">
         <img
-          style={{ width: isSidebarOpen ? "" : "5rem", minWidth: "2rem" }}
+          style={{
+            width: isSidebarOpen ? "" : "5rem",
+            minWidth: isSidebarOpen ? "" : "2rem",
+          }}
           src={logo}
           alt="ppe logo"
         />

@@ -1,3 +1,4 @@
+import { Tooltip } from "@mantine/core";
 import { Link } from "react-router-dom";
 
 export default function SidebarItem({
@@ -23,7 +24,7 @@ export default function SidebarItem({
           w-full
         >
           <item.icon
-            className="pb-1 w-5 h-5"
+            className="pb-1 w-6 h-6"
             color={isActive ? "#FFFFFF" : undefined}
           />
           <div className={`${isActive ? "text-white" : "text-grayFont"}`}>
@@ -31,12 +32,21 @@ export default function SidebarItem({
           </div>
         </div>
       ) : (
-        <div className="p-3">
-          <item.icon
-            className="m-auto w-6 h-6"
-            color={isActive ? `#42a4df` : undefined}
-          />
-        </div>
+        <Tooltip
+          label={item.title}
+          withArrow
+          arrowSize={8}
+          position="right"
+          color="#343434"
+          radius={"xs"}
+        >
+          <div className="p-3">
+            <item.icon
+              className="m-auto w-6 h-6"
+              color={isActive ? `#42a4df` : undefined}
+            />
+          </div>
+        </Tooltip>
       )}
     </Link>
   );

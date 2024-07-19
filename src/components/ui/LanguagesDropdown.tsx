@@ -17,12 +17,12 @@ const languages: Record<string, { name: string; logo: string }> = {
 export default function LanguagesDropdown() {
   const [selectedLanguage, setSelectedLanguage] = useState("EN");
   return (
-    <Popover position="left" withArrow shadow="md" >
+    <Popover position="left" withArrow shadow="md">
       <Popover.Target>
         <img
           src={languages[selectedLanguage].logo}
           alt={selectedLanguage}
-          className="object-cover cursor-pointer"
+          className="object-cover cursor-pointer w-6 h-6"
         />
       </Popover.Target>
       <Popover.Dropdown p={3} className="rounded-sm">
@@ -33,7 +33,9 @@ export default function LanguagesDropdown() {
           >
             <img src={value.logo} alt={key} />
             <span
-              className={key !== selectedLanguage ? "text-grayFont":"text-black"}
+              className={
+                key !== selectedLanguage ? "text-grayFont" : "text-black"
+              }
             >{`${value.name} (${key})`}</span>
           </div>
         ))}
