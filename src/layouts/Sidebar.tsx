@@ -6,11 +6,11 @@ import { MENU } from "@/types/constants";
 import SidebarItem from "@/components/ui/SidebarItem";
 
 export default function Sidebar({
-  isDesktop,
+  isInDrawer,
   isSidebarOpen,
   toggleSidebar,
 }: {
-  isDesktop: boolean;
+  isInDrawer?: boolean;
   toggleSidebar: () => void;
   isSidebarOpen: boolean;
 }) {
@@ -18,19 +18,20 @@ export default function Sidebar({
   return (
     <div
       className={`flex shrink-0 flex-col h-full gap-y-5 ${
-        isDesktop ? "border border-grayBorder py-5" : "p-0"
+        !isInDrawer ? "border border-grayBorder py-5" : ""
       }`}
     >
-      <div className="flex flex-row justify-around gap-x-3 items-center px-5">
+      <div className="flex flex-row justify-around gap-x-3 items-center px-1 overflow-auto">
         <img
           style={{
-            width: isSidebarOpen ? "" : "5rem",
+            width: isSidebarOpen ? "11rem" : "5rem",
             minWidth: isSidebarOpen ? "" : "2rem",
+            maxWidth: isSidebarOpen ? "" : "50px",
           }}
           src={logo}
           alt="ppe logo"
         />
-        {isDesktop && isSidebarOpen && (
+        {!isInDrawer && isSidebarOpen && (
           <img
             className="cursor-pointer"
             onClick={toggleSidebar}

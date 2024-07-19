@@ -27,16 +27,20 @@ const MainLayout = ({ children }: { children: ReactElement }) => {
       {!isDesktop(width) && (
         <Drawer size={270} opened={opened} onClose={close}>
           <Sidebar
-            isDesktop={isDesktop(width)}
+            isInDrawer
             isSidebarOpen={true}
             toggleSidebar={toggleSidebar}
           />
         </Drawer>
       )}
       {!isMobile(width) && (
-        <div style={{ width: isSidebarOpen ? "17%" : "5%" }}>
+        <div
+          style={{
+            width: isSidebarOpen ? "17%" : "5%",
+            transition: "width 0.5s",
+          }}
+        >
           <Sidebar
-            isDesktop={isDesktop(width)}
             isSidebarOpen={isSidebarOpen}
             toggleSidebar={toggleSidebar}
           />
